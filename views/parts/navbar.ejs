@@ -1,0 +1,53 @@
+    <nav class="navbar py-0 fixed-top bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <div class="navbar-items d-lg-inline-block d-none">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#">Site</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#">Q&A</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="#">Contact</a>
+                    </li>
+                    <% if (!isUser == true) { %> 
+                    <li class="nav-item">
+                        <a class="nav-link py-3" href="/login">Login</a>
+                    </li>
+                    <% } %>
+                        
+                </ul>
+            </div>
+            <% if (isUser === true) { %>
+                <div class="user-navbar">
+                    <div class="dropdown">
+                        <button class="btn shadow-none dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                           <img src="/<%= userData.image %>" alt="user" style="width: 40px; height: 40px; border-radius: 50%;">
+                        </button>
+                        <div class="dropdown-menu py-4 px-2" aria-labelledby="dropdownMenuButton" style="top: 50px; left: -100px;">
+                            <a class="py-2 dropdown-item d-flex justify-content-between" href="#" style="font-size: 17px;font-weight: 500;color: var(--firstblackC);"><i class="fas fa-user" style="padding-right: 35px; font-size: 22px;"></i> profile</a>
+                            <a class="py-2 dropdown-item d-flex justify-content-between" href="#" style="font-size: 17px;font-weight: 500;color: var(--firstblackC);"><i class="fas fa-tachometer-alt" style="padding-right: 35px; font-size: 22px;"></i> dashboard</a>
+                            <a class="py-2 dropdown-item d-flex justify-content-between" href="#" style="font-size: 17px;font-weight: 500;color: var(--firstblackC);"><i class="fas fa-layer-group" style="padding-right: 35px; font-size: 22px;"></i> orders</a>
+                            <form action="/logout" method="POST">
+                                <button type="submit" class="py-2 dropdown-item d-flex justify-content-between shadow-none border-0"  style="font-size: 17px;font-weight: 500;color: var(--firstblackC);"><i class="fas fa-sign-out-alt" style="padding-right: 35px; font-size: 22px;"></i> log out</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %> 
+            <a link="#" class="cart-link text-decoration-none">
+                <i class="fas fa-cart-plus"></i>
+            </a>
+            <div class="toggle-menu">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </nav>

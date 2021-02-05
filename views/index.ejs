@@ -1,0 +1,289 @@
+<%- include('parts/header') %> 
+<%- include('parts/navbar') %> 
+
+    <main class="home-section">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="home-section-content text-center col-9 col-md-5">
+                <h3 class="h2">choose Your Book ...</h3>
+                <form class="pt-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control shadow-none border-none input-special" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn shadow-none border-none input-special" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <main class="pros text-center m-section">
+        <div class="container">
+            <h4 class="section-title text-capitalize mt-3 mb-5">why choose us ?</h4>
+            <div class="row">
+                <div class="col-xl-3 col-md-6 col">
+                    <div class="pros-item p-5 mb-4">
+                        <img src="/images/pros/delvery.png" alt="">
+                        <h6 class="pros-name mt-3">Free Delvery</h6>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col">
+                    <div class="pros-item p-5 mb-4">
+                        <img src="/images/pros/new.png" alt="">
+                        <h6 class="pros-name mt-3">New Books</h6>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col">
+                    <div class="pros-item p-5 mb-4">
+                        <img src="/images/pros/low-price.png" alt="">
+                        <h6 class="pros-name mt-3">Discounts</h6>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-md-6 col">
+                    <div class="pros-item p-5 mb-4">
+                        <img src="/images/pros/call-center-agent.png" alt="">
+                        <h6 class="pros-name mt-3">Support</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="top-rating m-section">
+        <div class="container">
+            <div class="section-title text-center text-capitalize">top rating</div>
+            <div class="slider-container" style="overflow: hidden;">
+                <div class="slider-items d-flex flex-nowrap">
+
+                    <% for(let book of books.topRating) { %>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="slide-item">
+                                <div class="product-img">
+                                    <img src="/<%= book.fileName %>" alt="<%= book.title %>" class="w-100 h-100">
+                                </div>
+                                <div class="product-details mt-2 d-flex justify-content-between">
+                                    <span class="name"><%= book.title %></span>
+                                    <span class="d-flex justify-content-between">
+                                        <ul class="list-unstyled">
+                                            <% for(let i = 0; i < 5; i++) { %> 
+                                                <li class="<%= book.totalRating > i ? "d-d-inline-block" : "d-inline-block" %>">
+                                                    <% if(Number.isInteger(book.totalRating)) { %>
+                                                        <i class="fas fa-star"></i>
+                                                    <% } else { %>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    <% } %> 
+                                                </li>
+                                            <% } %> 
+                                        </ul>
+                                    </span>
+                                </div>
+                                <h6 class="h5 mb-3">30$</h6>
+                                <a class="link-button text-decoration-none" href="/book/<%= book.title.replace(" ", "-") %>">view</a>
+                            </div>
+                        </div>
+                    <% } %>  
+                </div>
+                <div class="Slider-controls d-flex justify-content-between" data-trans="0">
+                    <span class="left" data-btn="left"><i class="fas fa-arrow-left"></i></span>
+                    <span class="right" data-btn="right"><i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>  
+        </div>
+    </main>
+    <main class="best-seller m-section">
+        <div class="container">
+            <div class="section-title text-center text-capitalize">top rating</div>
+            <div class="slider-container" style="overflow: hidden;">
+                <div class="slider-items d-flex flex-nowrap">
+
+                    <% for(let book of books.bestSellar) { %>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="slide-item">
+                                <div class="product-img">
+                                    <img src="/<%= book.fileName %>" alt="<%= book.title %>" class="w-100 h-100">
+                                </div>
+                                <div class="product-details mt-2 d-flex justify-content-between">
+                                    <span class="name"><%= book.title %></span>
+                                    <span class="d-flex justify-content-between">
+                                        <ul class="list-unstyled">
+                                            <% for(let i = 0; i < 5; i++) { %> 
+                                                <li class="<%= book.totalRating > i ? "d-d-inline-block" : "d-inline-block" %>">
+                                                    <% if(Number.isInteger(book.totalRating)) { %>
+                                                        <i class="fas fa-star"></i>
+                                                    <% } else { %>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    <% } %> 
+                                                </li>
+                                            <% } %> 
+                                        </ul>
+                                    </span>
+                                </div>
+                                <h6 class="h5 mb-3">30$</h6>
+                                <a class="link-button text-decoration-none" href="/book/<%= book.title.replace(" ", "-") %>">view</a>
+                            </div>
+                        </div>
+                    <% } %>  
+                </div>
+                <div class="Slider-controls d-flex justify-content-between" data-trans="0">
+                    <span class="left" data-btn="left"><i class="fas fa-arrow-left"></i></span>
+                    <span class="right" data-btn="right"><i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>  
+        </div>
+    </main>
+    <main class="new-products m-section">
+        <div class="container">
+            <div class="section-title text-center text-capitalize">top rating</div>
+            <div class="slider-container" style="overflow: hidden;">
+                <div class="slider-items d-flex flex-nowrap">
+
+                    <% for(let book of books.newProducts) { %>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="slide-item">
+                                <div class="product-img">
+                                    <img src="/<%= book.fileName %>" alt="<%= book.title %>" class="w-100 h-100">
+                                </div>
+                                <div class="product-details mt-2 d-flex justify-content-between">
+                                    <span class="name"><%= book.title %></span>
+                                    <span class="d-flex justify-content-between">
+                                        <ul class="list-unstyled">
+                                            <% for(let i = 0; i < 5; i++) { %> 
+                                                <li class="<%= book.totalRating > i ? "d-d-inline-block" : "d-inline-block" %>">
+                                                    <% if(Number.isInteger(book.totalRating)) { %>
+                                                        <i class="fas fa-star"></i>
+                                                    <% } else { %>
+                                                        <i class="fas fa-star-half-alt"></i>
+                                                    <% } %> 
+                                                </li>
+                                            <% } %> 
+                                        </ul>
+                                    </span>
+                                </div>
+                                <h6 class="h5 mb-3">30$</h6>
+                                <a class="link-button text-decoration-none" href="/book/<%= book.title.replace(" ", "-") %>">view</a>
+                            </div>
+                        </div>
+                    <% } %>  
+                </div>
+                <div class="Slider-controls d-flex justify-content-between" data-trans="0">
+                    <span class="left" data-btn="left"><i class="fas fa-arrow-left"></i></span>
+                    <span class="right" data-btn="right"><i class="fas fa-arrow-right"></i></span>
+                </div>
+            </div>  
+        </div>
+    </main>
+    <main class="testimonials m-section">
+        <div class="container">
+            <div class="section-title text-center text-capitalize">what say about us</div>
+            <div class="row">
+                <div class="col-lg-4 mb-5">
+                    <div class="testimonial-item p-4">
+                        <div class="testimonial-top d-flex align-items-center pb-3">
+                            <img src="/images/testimonials/test-1.jpg" alt="">
+                            <span class="text-capitalize ml-3">ahmed mohammed</span>
+                        </div>
+                        <p class="testimonial-desc">
+                            thank you, you have a good service and best support
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="testimonial-item p-4">
+                        <div class="testimonial-top d-flex align-items-center pb-3">
+                            <img src="/images/testimonials/test-2.jpg" alt="">
+                            <span class="text-capitalize ml-3">ali said</span>
+                        </div>
+                        <p class="testimonial-desc">
+                            You never let me down. Good price and fast delivery speed.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-5">
+                    <div class="testimonial-item p-4">
+                        <div class="testimonial-top d-flex align-items-center pb-3">
+                            <img src="/images/testimonials/test-3.jpg" alt="">
+                            <span class="text-capitalize ml-3">yossef amr</span>
+                        </div>
+                        <p class="testimonial-desc">
+                            I was impressed with dealing with you because of your good prices.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="our-site m-section">
+        <div class="section-title text-center text-capitalize">our location</div>
+        <div class="container">
+            <main id="map">
+
+            </main>
+        </div>
+    </main>
+    <main class="latest-posts m-section">
+        <div class="section-title text-center text-capitalize">latest posts from our blog</div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4">
+                    <div class="card">
+                        <img class="card-img-top" style="padding: 20px 20px 0px;" src="/images/blog/blog-2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="h5">how can read benfit children?</h6>
+                            <p class="card-text">Reading benefits children and builds their thinking well and make it realize their life.</p>
+                            <a href="#" class="card-link">Read it</a>
+                            <div class="pt-2 d-flex justify-content-between align-items-center">
+                                <span>21 nov 2020</span>
+                                <span class="d-flex">
+                                    <i class="fas fa-thumbs-up mr-2">20</i>
+                                    <i class="fas fa-comment">10</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <img class="card-img-top" style="padding: 20px 20px 0px;" src="/images/blog/blog-2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="h5">how can read benfit children?</h6>
+                            <p class="card-text">Reading benefits children and builds their thinking well and make it realize their life.</p>
+                            <a href="#" class="card-link">Read it</a>
+                            <div class="pt-2 d-flex justify-content-between align-items-center">
+                                <span>21 nov 2020</span>
+                                <span class="d-flex">
+                                    <i class="fas fa-thumbs-up mr-2">20</i>
+                                    <i class="fas fa-comment">10</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="card">
+                        <img class="card-img-top" style="padding: 20px 20px 0px;" src="/images/blog/blog-2.jpg" alt="Card image cap">
+                        <div class="card-body">
+                            <h6 class="h5">how can read benfit children?</h6>
+                            <p class="card-text">Reading benefits children and builds their thinking well and make it realize their life.</p>
+                            <a href="#" class="card-link">Read it</a>
+                            <div class="pt-2 d-flex justify-content-between align-items-center">
+                                <span>21 nov 2020</span>
+                                <span class="d-flex">
+                                    <i class="fas fa-thumbs-up mr-2">20</i>
+                                    <i class="fas fa-comment">10</i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <%- include('parts/scripts') %> 
+    <script src="/js/index.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClHRY1F4FRVre-fKucelWOumPhCjwiwK0&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
+</body>
+</html>

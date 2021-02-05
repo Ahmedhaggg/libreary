@@ -1,0 +1,22 @@
+<input type="hidden" id="quantity-avilable" value="<%= book.quantity %>">
+                                <input type="hidden" id="productId" value="<%= book._id%>">
+                                <input type="hidden" id="producttitle" value="<%= book.title%>">
+                                <input type="hidden" id="productprice" value="<%= book.price%>">
+                                <input type="hidden" id="productImage" value="<%= book.image%>">
+                                <input type="hidden" id="productCategory" value="<%= book.category %>">
+
+
+feedback =========>>>>>>>>
+<main class="product-ratings">
+        <div class="container">
+            <% if(book.feedback.length > 0) { %> 
+                <div class="comments">                    
+                    <% for (let feedback of book.feedback) { %>
+                    
+                    <% } %>     
+                </div>
+            <% } else { %> 
+                <div class="empty-feedback-message">no any feedback</div>
+            <% } %> 
+        </div>
+</main>

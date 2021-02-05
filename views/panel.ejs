@@ -1,0 +1,66 @@
+<%- include('parts/header')  %>
+
+    <main class="admin-panel m-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="offset-xl-3 col-xl-6 add-book">
+                    <h6 class="section-title-2 text-center mb-4">Add Book</h6>
+                    <% if (addBookErr) { %>
+                        <div class="alert alert-danger"><%= addBookErr %></div> 
+                    <% }  %>
+                    <% if (addBookCompeletly) { %>
+                        <div class="alert alert-success"><%= addBookCompeletly %></div>
+                    <% } %>  
+                    <form action="/book/add" method="POST" enctype="multipart/form-data">
+                        <input type="text" class="form-control shadow-none mb-4" placeholder="title" name="title">
+                        <input type="text" class="form-control shadow-none mb-4" placeholder="author" name="author">
+                        <input type="text" class="form-control shadow-none mb-4" placeholder="year" name="year">
+                        <input type="text" class="form-control shadow-none mb-4" placeholder="category" name="category">
+                        <input type="number" class="form-control shadow-none mb-4" placeholder="price" name="price">
+                        <input type="number" class="form-control shadow-none mb-4" placeholder="availbal amount" name="amount">
+                        <input type="number" class="form-control shadow-none mb-4" placeholder="discount (option)" name="discount">
+                        <textarea class="form-control shadow-none mb-4" style="height: 190px; color: var(--firstblackC);" placeholder="write description" name="description"></textarea>
+                        <label class="custom-label"> select image</label>
+                        <div class="special-input-file mb-4">
+                            <input type="file" id="file-upload" name="imageBook">
+                            <div class="layer-input-file">
+                                +
+                            </div>
+                        </div>
+                        <div class="preview-content mb-4 d-none">
+                            <img src="" alt="" class="preview-book-image">
+                            <div class="custom-button-file">
+                                <div class="layer-button-file">
+                                    <i class="far fa-trash-alt"></i>remove
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center mt-4">
+                            <input type="submit" class="btn shadow-none btn-special" value="Add Book">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="dashboard py-5">
+        <h6 class="h5 text-center"><i class="fas fa-tachometer-alt"></i> dashboard</h6>
+        <ul class="nav flex-column mt-5">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Disabled</a>
+            </li>
+          </ul>
+    </main>
+<%- include('parts/scripts') %> 
+<script src="/js/adminpanel.js"></script>
+</body>
+</html>

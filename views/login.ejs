@@ -1,0 +1,40 @@
+<%- include('parts/header') %> 
+<%- include('parts/navbar') %> 
+
+    <main class="sign m-section">
+        <div class="container">  
+            <h4 class="section-title text-capitalize mt-3 mb-5 text-center">Login</h4>
+            <div class="div-login-content mr-auto ml-auto col-6">
+                <% if (enrollError.length > 0) { %> 
+                    <p class="alert alert-danger"><%= enrollError %></p>
+                <% } %>
+                <form action="/login" method="POST">
+                    <div class="form-group mb-4">
+                        <% let emailError = authError.find(err => err.param === "email") %> 
+                        <input 
+                            type="email"
+                            class="<%= emailError ? 'form-control shadow-none alert alert-danger' : 'form-control shadow-none' %>"
+                            name="email"
+                            placeholder="your email"
+                            value="<%= values ? values.email : '' %>"
+                        />
+                    </div>
+                    <div class="form-group mb-4">
+                        <% let passwordError = authError.find(err => err.param === "password") %> 
+                        <input 
+                            type="password"
+                            class="<%= passwordError ? 'form-control shadow-none alert alert-danger' : 'form-control shadow-none' %>"
+                            name="password"
+                            placeholder="your password"
+                        />
+                    </div>
+                    <div class="text-center">
+                        <input type="submit" class="btn shadow-none btn-special" value="login">
+                    </div>
+                    <p class="mt-5 text-center auth-message"> Don't have any account ? <a href="/sign">login</a></p>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
